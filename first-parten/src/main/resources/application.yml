@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/ssm_project?useUnicode=true&characterEncoding=Utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      filters: stat
+      filter:
+        stat:
+          enabled: true
+      # StatViewServlet配置
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: hcl
+        login-password: 123
+      # WebStatFilter配置
+      web-stat-filter:
+        enabled: true
+        url-pattern: '/*'
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        session-stat-enable: true
+
+
+logging:
+  level:
+    root: debug
